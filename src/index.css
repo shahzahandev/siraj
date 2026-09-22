@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nav-height: 76px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "Outfit", system-ui, sans-serif;
+  background: #fafaf9;
+}
+
+body::selection {
+  background: rgba(16, 185, 129, 0.25);
+}
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+section {
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+.container-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-block: clamp(72px, 9vw, 118px);
+}
+
+.eyebrow {
+  @apply inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-300;
+}
+
+.section-title {
+  @apply font-display text-3xl font-bold tracking-normal text-zinc-950 dark:text-white md:text-5xl;
+}
+
+.section-copy {
+  @apply mt-4 max-w-2xl text-base leading-8 text-zinc-600 dark:text-zinc-300 md:text-lg;
+}
+
+.glass-panel {
+  @apply border border-zinc-200/80 bg-white/80 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.055] dark:shadow-soft-dark;
+}
+
+.focus-ring {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.dark .hero-grid {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.10) 1px, transparent 1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
